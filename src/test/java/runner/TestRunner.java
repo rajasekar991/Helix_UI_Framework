@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="D:\\Helix_Workspaces\\Helix_UI_Framework\\src\\test\\resources\\features\\login.feature", 
-				 glue = {"stepDefinitions"}
+				 glue = {"stepDefinitions","ApplicationBasePage"}
 				)
 public class TestRunner {
 
