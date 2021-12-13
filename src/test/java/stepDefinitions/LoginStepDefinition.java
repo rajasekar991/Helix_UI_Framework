@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.helix.team.pages.HelixLoginPage;
+import com.helix.team.pages.HelixRequestMeetingPage;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -19,6 +20,9 @@ public class LoginStepDefinition {
 	String div_pwd = "//div[@id='ctl00_BodyContent_TextBoxPassword']";
 	String tbx_password ="//input[@id='ctl00_BodyContent_TextBoxPassword_I_CLND']";
 	String btn_Login ="//button[@value='Login']";
+	
+	HelixLoginPage helix_Login;
+	HelixRequestMeetingPage helix_req_meeting_page;
 	
 	@Given("^I am on Helix login page$")
 	public void i_am_on_Helix_login_page() throws InterruptedException
@@ -40,17 +44,18 @@ public class LoginStepDefinition {
 	@Then("I enter {string} and {string} and login")
 	public void i_enter_UN_PWD(String username, String password) throws InterruptedException
 	{
-		HelixLoginPage helix_Login = new HelixLoginPage(driver);
+		helix_Login = new HelixLoginPage(driver);
 		helix_Login.helixLogin(username, password);
 	}
 	
 	
 
 	
-	@And("I validate the login function")
-	public void i_validate_the_login_function()
+	@Then("I validate the login function with {string}")
+	public void i_validate_the_login_function(String welcomeMessage)
 	{
-		System.out.println("HomePage entered");
+		helix_req_meeting_page = new HelixRequestMeetingPage(driver);
+		helix_req_meeting_page.validateIsWelcomeDisplayed(welcomeMessage);
 	}
 	
 	@And("I close the browswer")
