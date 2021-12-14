@@ -1,32 +1,24 @@
 package com.helix.team.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class HelixRequestMeetingPage {
 	
-	public boolean isWelcomeTextIsDisplayed = false;
+private WebDriver driver;
+private HelixAdminTools adminTools;
+private By lnk_AdminTool = By.xpath("//a[@href='AdminTools.aspx']");
+
 	
-	@FindBy(xpath = "//input[@value='Email address']")
-	WebElement txt_welcome;
-	WebDriver driver;
 	public HelixRequestMeetingPage(WebDriver driver)
 	{
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
-		
+		this.driver = driver;
 	}
 	
-	public boolean validateIsWelcomeDisplayed(String welcomeMessage)
+	public void clickOnAdminToolsSection()
 	{
-		
-		if(txt_welcome.getText().contains(welcomeMessage))
-		{
-			isWelcomeTextIsDisplayed = true;
-		}
-		return isWelcomeTextIsDisplayed;
+		driver.findElement(lnk_AdminTool).click();
 	}
+
 
 }

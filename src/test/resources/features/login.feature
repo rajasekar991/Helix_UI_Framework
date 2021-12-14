@@ -1,11 +1,13 @@
 #Author: Rajesh Matadh
 Feature: Helix Login Page feature
 
-#@LoginHelix
-#Scenario: Login age title
-#Given User is on Helix login page
-#When User gets the title of the login page 
-#Then Page title should be "Biohaven Speaker Bureau"
+
+
+@LoginHelix
+Scenario: Login age title
+Given User is on Helix login page
+When User gets the title of the login page 
+Then Page title should be "Biohaven Speaker Bureau"
 #
 #
 #Scenario: Forgot your password link

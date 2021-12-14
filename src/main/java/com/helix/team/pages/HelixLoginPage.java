@@ -59,5 +59,15 @@ public class HelixLoginPage extends ElementUtils{
 		driver.findElement(btn_loin_login).click();
 	}
 	
+	public HelixMeetingListPage doLogin(String username, String password) throws InterruptedException
+	{
+		driver.findElement(tbx_username_login).sendKeys(username);
+		Thread.sleep(3000);
+		driver.findElement(tbx_password_login).sendKeys(password);
+		Thread.sleep(3000);
+		driver.findElement(btn_loin_login).click();
+		return new HelixMeetingListPage(driver);
+	}
+	
 
 }
